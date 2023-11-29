@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Vector Operation App',
       home: VectorOperationScreen(),
     );
@@ -16,11 +18,13 @@ class MyApp extends StatelessWidget {
 }
 
 class VectorOperationScreen extends StatefulWidget {
+  const VectorOperationScreen({super.key});
+
   @override
-  _VectorOperationScreenState createState() => _VectorOperationScreenState();
+  VectorOperationScreenState createState() => VectorOperationScreenState();
 }
 
-class _VectorOperationScreenState extends State<VectorOperationScreen> {
+class VectorOperationScreenState extends State<VectorOperationScreen> {
   TextEditingController axController = TextEditingController();
   TextEditingController ayController = TextEditingController();
   TextEditingController azController = TextEditingController();
@@ -39,91 +43,93 @@ class _VectorOperationScreenState extends State<VectorOperationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Vector Operations'),
+        title: const Text('Vector Operations'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            buildVectorInput('Vector A', axController, ayController, azController),
-            SizedBox(height: 20),
-            buildVectorInput('Vector B', bxController, byController, bzController),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: calculateSum,
-                  child: Text('Sum'),
-                ),
-                ElevatedButton(
-                  onPressed:calculateDifference,
-                  child: Text('Difference'),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed:calculateDotProduct,
-                  child: Text('Dot Product'),
-                ),
-                ElevatedButton(
-                  onPressed: calculateCrossProduct,
-                  child: Text('Cross Product'),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: calculateUnitVectorA,
-                  child: Text('Unit Vector A'),
-                ),
-                ElevatedButton(
-                  onPressed: calculateUnitVectorB,
-                  child: Text('Unit Vector B'),
-                ),
-                ElevatedButton(
-                  onPressed: clearData,
-                  child: Text('ClearFields'),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Sum: $sumResult',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Difference: $differenceResult',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Dot Product: $dotProductResult',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Cross Product: $crossProductResult',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Unit Vector A: $unitVectorAResult',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Unit Vector B: $unitVectorBResult',
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              buildVectorInput('Vector A', axController, ayController, azController),
+              const SizedBox(height: 20),
+              buildVectorInput('Vector B', bxController, byController, bzController),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: calculateSum,
+                    child: const Text('Sum'),
+                  ),
+                  ElevatedButton(
+                    onPressed:calculateDifference,
+                    child: const Text('Difference'),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed:calculateDotProduct,
+                    child: const Text('Dot Product'),
+                  ),
+                  ElevatedButton(
+                    onPressed: calculateCrossProduct,
+                    child: const Text('Cross Product'),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: calculateUnitVectorA,
+                    child: const Text('Unit Vector A'),
+                  ),
+                  ElevatedButton(
+                    onPressed: calculateUnitVectorB,
+                    child: const Text('Unit Vector B'),
+                  ),
+                  ElevatedButton(
+                    onPressed: clearData,
+                    child: const Text('ClearFields'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Sum: $sumResult',
+                style: const TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'Difference: $differenceResult',
+                style: const TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'Dot Product: $dotProductResult',
+                style: const TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'Cross Product: $crossProductResult',
+                style: const TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'Unit Vector A: $unitVectorAResult',
+                style: const TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'Unit Vector B: $unitVectorBResult',
+                style: const TextStyle(fontSize: 18),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -135,9 +141,9 @@ class _VectorOperationScreenState extends State<VectorOperationScreen> {
       children: [
         Text(
           label,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Row(
           children: [
             buildTextField('X:', xController),
@@ -156,7 +162,7 @@ class _VectorOperationScreenState extends State<VectorOperationScreen> {
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           labelText: label,
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
         ),
       ),
     );
