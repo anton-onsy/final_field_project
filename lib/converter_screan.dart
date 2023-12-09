@@ -30,39 +30,42 @@ class _ConverterScreenState extends State<ConverterScreen> {
             buildVectorInput(
                 'Vector A', axController, ayController, azController),
             SizedBox(height: 25,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  color: Colors.white,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      calculateCylindricalCoordinates();
-                    },
-                    child: const Text(
-                        'Convert TO Cylindrical',
-                      style: TextStyle(
-                        color: Colors.black
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    color: Colors.white,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        calculateCylindricalCoordinates();
+                      },
+                      child: const Text(
+                          'Convert TO Cylindrical',
+                        style: TextStyle(
+                          color: Colors.black
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 8,),
-                Container(
-                  color: Colors.white,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      calculateSphericalCoordinates();
-                    },
-                    child: const Text(
-                        'Convert TO spherical',
-                      style: TextStyle(
-                        color: Colors.black
+                  SizedBox(width: 8,),
+                  Container(
+                    color: Colors.white,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        calculateSphericalCoordinates();
+                      },
+                      child: const Text(
+                          'Convert TO spherical',
+                        style: TextStyle(
+                          color: Colors.black
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             SizedBox(height: 15,),
             Row(
