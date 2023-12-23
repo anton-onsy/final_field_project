@@ -90,6 +90,7 @@ class VectorOperationScreenState extends State<VectorOperationScreen> {
 
 
                 ),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(

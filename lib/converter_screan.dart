@@ -28,7 +28,7 @@ class _ConverterScreenState extends State<ConverterScreen> {
           children: [
             SizedBox(height: 50,),
             buildVectorInput(
-                'Vector A', axController, ayController, azController),
+                'Point ', axController, ayController, azController),
             SizedBox(height: 25,),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
